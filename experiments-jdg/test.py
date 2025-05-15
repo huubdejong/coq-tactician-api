@@ -2,17 +2,40 @@
 from pathlib import Path
 from pytact.data_reader import data_reader
 import polars as pl
+<<<<<<< Updated upstream
 import networkx
 
 dataset_path = Path("/Users/huubdejong/Documents/Education/UBC/M2PI_2025/Project/TacticianDataTemp/TacticianDataTemp/TacticianDataTemp/v15-stdlib-coq8.11/dataset").resolve()
+=======
+import networkx as nx
 
+G = nx.graph()
+>>>>>>> Stashed changes
+
+dataset_path = Path("/home/kr1staps/coq-tactician-api/TacticianDataTemp/TacticianDataTemp/v15-stdlib-coq8.11/dataset").resolve()
 
 with data_reader(dataset_path) as data:
+    # breakpoint()
     # data is everything.
     # data.items() iterates over all the files in the dataset dictionary.
     counts = {}
     for idx, (relative_path,dataset) in enumerate(data.items()):
+        # https://coq-tactician.github.io/api/pytactician-pdoc/pytact/data_reader.html
+        # breakpoint()
+        
+        if len(dataset.lowlevel.graph.nodes) == 0:
+            continue
+
         data_lowlevel = dataset.lowlevel
+        graph = data_lowlevel.graph
+
+        breakpoint()
+
+        
+
+
+       
+        # rsync --recursive --archive --progress --human-readable tactician@167.99.182.29:/home/tactician/TacticianDataTemp TacticianDataTemp
         # type(www) is the lowevel pytact.graph_api_capnpn_cython.Dataset_Reader class
         # it has the fields:
         # - data_version: the "version of the data in this dataset" 
@@ -59,11 +82,11 @@ with data_reader(dataset_path) as data:
                 a = c
         #print(a)
         
-        breakpoint()
+        # breakpoint()
 
 # breakpoint() pauses execution so you can poke at stuff
 # dir(object) tells you everything you can call on the object
-
+# Keys are python paths to .bin files, which are cap'n proto files.  
 
  
 

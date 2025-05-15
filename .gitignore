@@ -10,6 +10,8 @@ graph.dot
 graph.pdf
 python_graph.pdf
 
+TacticianDataTemp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
