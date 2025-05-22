@@ -112,7 +112,7 @@ with data_reader(dataset_path) as data:
         for defn in dataset.definitions(spine_only=True):
             if defn.proof is not None:
                 tactic_sequence = [step.tactic.base_text for step in defn.proof]
-                # breakpoint()
+                ## breakpoint()
                 all_tactic_sequences.append(tactic_sequence)
                 print("Tactic Sequence:")
                 print(tactic_sequence)
