@@ -32,6 +32,14 @@ with data_reader(dataset_path) as data:
         # - representative: int -- the official docs say that this is the entrypoint of the global context of of definitions available when this file is required by another.  If no 'super'-global definitions, then this is set to len(graph.nodes).  But it's not perfectly clear what that means.
         #print(dir(data_lowlevel))
         #print(type(data_lowlevel))
+        #print([p for p in dataset.dependencies])
+        for definition in dataset.definitions():
+            if definition.proof != None:
+                
+                breakpoint()
+            ProofSteps = definition.proof
+
+
 
         all_depIndices = [edge.target.dep_index for edge in data_lowlevel.graph.edges]
         all_depIndices_df = pl.DataFrame(all_depIndices)
@@ -39,7 +47,7 @@ with data_reader(dataset_path) as data:
         all_nodeIndices = [edge.target.node_index for edge in data_lowlevel.graph.edges]
         all_nodeIndices_df = pl.DataFrame(all_nodeIndices)
         
-        breakpoint()
+        #breakpoint()
 
         # This part iterates over the nodes and lists their children. 
         for node in data_lowlevel.graph.nodes: # go through the list of nodes
