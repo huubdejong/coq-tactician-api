@@ -1,10 +1,4 @@
 pymongo
 pytactician
 polars
-<<<<<<< Updated upstream
-graphviz
-networkx
-pytactician
-=======
 "networkx[default]"
->>>>>>> Stashed changes
